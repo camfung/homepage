@@ -1,0 +1,26 @@
+# Vendor directory
+/vendor/
+
+# Composer files
+composer.lock
+
+# Environment files
+.env
+
+# PHPUnit cache
+.phpunit.cache
+.phpunit.result.cache
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test coverage reports
+coverage/

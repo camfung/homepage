@@ -1,0 +1,28 @@
+{
+    "name": "trafficportal/api-client",
+    "description": "PHP client for Traffic Portal API",
+    "type": "library",
+    "require": {
+        "php": ">=8.0",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "TrafficPortal\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TrafficPortal\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test-unit": "phpunit --testsuite unit",
+        "test-integration": "phpunit --testsuite integration"
+    }
+}

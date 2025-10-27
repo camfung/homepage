@@ -33,6 +33,11 @@ class TP_Link_Shortener {
     private $admin;
 
     /**
+     * API handler
+     */
+    private $api_handler;
+
+    /**
      * Get plugin instance
      */
     public static function get_instance() {
@@ -48,6 +53,7 @@ class TP_Link_Shortener {
     public function init() {
         // Initialize components
         $this->assets = new TP_Assets();
+        $this->api_handler = new TP_API_Handler();
         $this->shortcode = new TP_Shortcode($this->assets);
         $this->admin = new TP_Admin_Settings();
 

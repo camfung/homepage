@@ -152,10 +152,6 @@
     color: var(--tp-accent);
 }
 
-.tp-url-copy-wrapper .tp-form-control {
-    border-radius: 0.9rem 0 0 0.9rem;
-}
-
 .tp-qr-code-container {
     min-height: 220px;
     display: flex;

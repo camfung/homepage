@@ -148,41 +148,40 @@
          * Set loading state
          */
         setLoadingState: function(loading) {
-            if (loading) {
-                this.$submitBtn.prop('disabled', true);
-                this.$loading.show();
-            } else {
-                this.$submitBtn.prop('disabled', false);
-                this.$loading.hide();
-            }
+            this.$form.attr('aria-busy', loading);
+            this.$submitBtn.prop('disabled', loading);
+            this.$submitBtn.toggleClass('disabled', loading);
+            this.$loading.toggleClass('d-none', !loading);
         },
 
         /**
          * Show error message
          */
         showError: function(message) {
-            this.$errorMessage.html('<i class="fas fa-exclamation-circle"></i> ' + message).show();
+            this.$errorMessage
+                .html('<i class="fas fa-exclamation-circle me-2"></i>' + message)
+                .removeClass('d-none');
         },
 
         /**
          * Hide error message
          */
         hideError: function() {
-            this.$errorMessage.hide();
+            this.$errorMessage.addClass('d-none').empty();
         },
 
         /**
          * Show result section
          */
         showResult: function() {
-            this.$resultSection.slideDown(300);
+            this.$resultSection.removeClass('d-none');
         },
 
         /**
          * Hide result section
          */
         hideResult: function() {
-            this.$resultSection.hide();
+            this.$resultSection.addClass('d-none');
         },
 
         /**
@@ -220,7 +219,8 @@
 
             // Visual feedback
             const originalText = this.$copyBtn.html();
-            this.$copyBtn.html('<i class="fas fa-check"></i> Copied!');
+            const copiedLabel = tpLinkShortener.strings.copied || 'Copied!';
+            this.$copyBtn.html('<i class="fas fa-check me-2"></i>' + copiedLabel);
 
             setTimeout(function() {
                 this.$copyBtn.html(originalText);

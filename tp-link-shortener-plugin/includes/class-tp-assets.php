@@ -86,6 +86,7 @@ class TP_Assets {
                 'invalidUrl' => __('Please enter a valid URL', 'tp-link-shortener'),
                 'keyTaken' => __('This shortcode is already taken', 'tp-link-shortener'),
                 'premiumOnly' => __('Custom shortcodes are only available for premium members', 'tp-link-shortener'),
+                'copied' => __('Copied!', 'tp-link-shortener'),
             ),
         ));
     }

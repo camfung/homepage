@@ -25,6 +25,11 @@
     color: var(--tp-text);
 }
 
+.tp-link-shortener-wrapper.container {
+    max-width: none;
+    width: 100%;
+}
+
 .tp-card {
     border-radius: 1.5rem;
     background: var(--tp-surface);

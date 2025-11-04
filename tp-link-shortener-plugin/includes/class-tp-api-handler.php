@@ -71,6 +71,11 @@ class TP_API_Handler {
         // Get POST data
         $destination = isset($_POST['destination']) ? sanitize_url($_POST['destination']) : '';
         $custom_key = isset($_POST['custom_key']) ? sanitize_text_field($_POST['custom_key']) : '';
+        $uid = isset($_POST['uid']) ? intval($_POST['uid']) : 0;
+
+        if ($uid <= 0) {
+            $uid = TP_Link_Shortener::get_user_id();
+        }
 
         // Validate destination
         if (empty($destination) || !filter_var($destination, FILTER_VALIDATE_URL)) {
@@ -95,7 +100,7 @@ class TP_API_Handler {
         }
 
         // Create the short link
-        $result = $this->create_short_link($destination, $custom_key);
+        $result = $this->create_short_link($destination, $custom_key, $uid);
 
         if ($result['success']) {
             wp_send_json_success($result['data']);
@@ -109,10 +114,10 @@ class TP_API_Handler {
     /**
      * Create short link via API
      */
-    private function create_short_link(string $destination, string $key): array {
+    private function create_short_link(string $destination, string $key, int $uid): array {
         try {
             $request = new CreateMapRequest(
-                uid: TP_Link_Shortener::get_user_id(),
+                uid: $uid,
                 tpKey: $key,
                 domain: TP_Link_Shortener::get_domain(),
                 destination: $destination,

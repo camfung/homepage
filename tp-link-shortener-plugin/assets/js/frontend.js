@@ -68,6 +68,17 @@
             // Get form data
             const destination = this.$destinationInput.val().trim();
             const customKey = this.$customKeyInput.val().trim();
+            let uidFromStorage = null;
+
+            try {
+                const storedUid = window.localStorage.getItem('tpUid');
+                if (storedUid && storedUid.trim() !== '') {
+                    uidFromStorage = storedUid;
+                }
+            } catch (storageError) {
+                // Unable to access localStorage (likely disabled or restricted)
+                uidFromStorage = null;
+            }
 
             // Validate
             if (!this.validateUrl(destination)) {
@@ -87,6 +98,10 @@
                 destination: destination,
                 custom_key: customKey
             };
+
+            if (uidFromStorage !== null) {
+                data.uid = uidFromStorage;
+            }
 
             // Send AJAX request
             $.ajax({

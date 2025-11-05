@@ -210,10 +210,14 @@
             const qrDiv = $('<div>').attr('id', 'qr-code-' + Date.now());
             this.$qrContainer.append(qrDiv);
 
+            // Add qr=1 query parameter to the URL
+            const separator = url.includes('?') ? '&' : '?';
+            const qrUrl = url + separator + 'qr=1';
+
             // Generate QR code
             try {
                 this.qrCode = new QRCode(qrDiv[0], {
-                    text: url,
+                    text: qrUrl,
                     width: 156,
                     height: 156,
                     colorDark: '#000000',

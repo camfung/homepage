@@ -12,7 +12,7 @@ $is_premium_only = TP_Link_Shortener::is_premium_only();
 $domain = isset($atts['domain']) ? esc_attr($atts['domain']) : TP_Link_Shortener::get_domain();
 ?>
 
-<div class="tp-link-shortener-wrapper container py-5">
+<div class="tp-link-shortener-wrapper py-5">
     <div class="row justify-content-center">
         <div class="col-lg-10 col-xl-8">
             <div class="card border-0 shadow-sm tp-card">
@@ -60,40 +60,6 @@ $domain = isset($atts['domain']) ? esc_attr($atts['domain']) : TP_Link_Shortener
                             </div>
                         </div>
 
-                        <!-- Trial Message -->
-                        <div class="tp-trial-message alert d-flex flex-column flex-md-row align-items-md-center gap-3 mb-4">
-                            <div class="d-flex align-items-start gap-3">
-                                <span class="tp-trial-icon">
-                                    <i class="fas fa-info-circle"></i>
-                                </span>
-                                <p class="mb-0">
-                                    <?php esc_html_e('Be aware that your trial shortener expires in 24 hours since created. In order to keep it and to have a lot of extra services, please create an account.', 'tp-link-shortener'); ?>
-                                </p>
-                            </div>
-                            <div class="tp-action-buttons d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center gap-2 ms-md-auto">
-                                <button type="button" class="btn tp-btn tp-btn-register w-100">
-                                    <i class="fas fa-user-plus me-2"></i>
-                                    <?php esc_html_e('Register', 'tp-link-shortener'); ?>
-                                </button>
-                                <span class="tp-or text-center mx-sm-2"><?php esc_html_e('or', 'tp-link-shortener'); ?></span>
-                                <button type="button" class="btn tp-btn tp-btn-login w-100">
-                                    <i class="fas fa-sign-in-alt me-2"></i>
-                                    <?php esc_html_e('Login', 'tp-link-shortener'); ?>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Just Name It Section -->
-                        <div class="tp-section tp-name-section rounded-4 p-4 mb-4">
-                            <h3 class="tp-section-title h5 mb-3">
-                                <i class="fas fa-signature me-2"></i>
-                                <?php esc_html_e('Just name it', 'tp-link-shortener'); ?>
-                            </h3>
-                            <p class="tp-section-description mb-0">
-                                <?php esc_html_e('Choose your own meaningful word or easy-to-remember code. Define as many aliases or synonyms as you want. Random keys are available also, but how about /6MagicTricks/ instead of https://www.youtube.com/watch?v=EqCeqYTpJpE Choose a short, easy to remember word or generate a random combination of letters. Provide the destination. No registration needed! Unique personalized FREE link shortener - no registration, no payment. Just use it.', 'tp-link-shortener'); ?>
-                            </p>
-                        </div>
-
                         <!-- Custom Shortcode Input (only show if not premium-only OR user is premium) -->
                         <?php if (!$is_premium_only || is_user_logged_in()): ?>
                         <div class="tp-form-group tp-custom-key-group mb-4">
@@ -114,6 +80,71 @@ $domain = isset($atts['domain']) ? esc_attr($atts['domain']) : TP_Link_Shortener
                             </div>
                         </div>
                         <?php endif; ?>
+
+                        <!-- Trial Message -->
+                        <?php if (!is_user_logged_in()): ?>
+                        <div class="tp-trial-message alert d-flex flex-column flex-md-row align-items-md-center gap-3 mb-4">
+                            <div class="d-flex align-items-start gap-3">
+                                <span class="tp-trial-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </span>
+                                <p class="mb-0">
+                                    <?php esc_html_e('Trial links expire in 24 hours. Create an account to keep them active and unlock extras.', 'tp-link-shortener'); ?>
+                                </p>
+                            </div>
+                            <div class="tp-action-buttons d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center gap-2 ms-md-auto">
+                                <button type="button" class="btn tp-btn tp-btn-register w-100">
+                                    <i class="fas fa-user-plus me-2"></i>
+                                    <?php esc_html_e('Register', 'tp-link-shortener'); ?>
+                                </button>
+                                <span class="tp-or text-center mx-sm-2"><?php esc_html_e('or', 'tp-link-shortener'); ?></span>
+                                <button type="button" class="btn tp-btn tp-btn-login w-100">
+                                    <i class="fas fa-sign-in-alt me-2"></i>
+                                    <?php esc_html_e('Login', 'tp-link-shortener'); ?>
+                                </button>
+                            </div>
+                        </div>
+                        <?php else: ?>
+                        <div class="tp-trial-message alert d-flex align-items-start gap-3 mb-4">
+                            <span class="tp-trial-icon">
+                                <i class="fas fa-user-check"></i>
+                            </span>
+                            <p class="mb-0">
+                                <?php esc_html_e('You are logged in, so your shortened links stay active and ready to manage in your dashboard.', 'tp-link-shortener'); ?>
+                            </p>
+                        </div>
+                        <?php endif; ?>
+
+                        <!-- Naming Guidance Sections -->
+                        <div class="tp-section tp-name-section rounded-4 p-4 mb-4">
+                            <h3 class="tp-section-title h5 mb-2">
+                                <i class="fas fa-signature me-2"></i>
+                                <?php esc_html_e('Pick a short keyword', 'tp-link-shortener'); ?>
+                            </h3>
+                            <p class="tp-section-description mb-0">
+                                <?php esc_html_e('Use a word, code, or acronym that you and your visitors will remember in seconds.', 'tp-link-shortener'); ?>
+                            </p>
+                        </div>
+
+                        <div class="tp-section rounded-4 p-4 mb-4">
+                            <h3 class="tp-section-title h5 mb-2">
+                                <i class="fas fa-bullseye me-2"></i>
+                                <?php esc_html_e('Keep it relevant', 'tp-link-shortener'); ?>
+                            </h3>
+                            <p class="tp-section-description mb-0">
+                                <?php esc_html_e('Match the key to your campaign, location, or offer so it stays meaningful at a glance.', 'tp-link-shortener'); ?>
+                            </p>
+                        </div>
+
+                        <div class="tp-section rounded-4 p-4 mb-4">
+                            <h3 class="tp-section-title h5 mb-2">
+                                <i class="fas fa-rocket me-2"></i>
+                                <?php esc_html_e('Share it instantly', 'tp-link-shortener'); ?>
+                            </h3>
+                            <p class="tp-section-description mb-0">
+                                <?php esc_html_e('Generate a random key when you are in a hurry and pair it with a QR code for quick scans.', 'tp-link-shortener'); ?>
+                            </p>
+                        </div>
 
                         <!-- Result Section (hidden initially) -->
                         <div id="tp-result-section" class="tp-result-section card border-0 shadow-sm rounded-4 mb-4 d-none">

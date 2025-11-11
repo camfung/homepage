@@ -23,6 +23,8 @@
 .tp-link-shortener-wrapper {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     color: var(--tp-text);
+    font-size: 0.95rem;
+    line-height: 1.55;
 }
 
 .tp-link-shortener-wrapper.container {
@@ -54,7 +56,7 @@
 }
 
 .tp-title {
-    font-size: 1.75rem;
+    font-size: 1.45rem;
     font-weight: 600;
     color: var(--tp-primary-contrast);
 }
@@ -72,8 +74,8 @@
     box-shadow: 0 0 0 0.25rem rgba(91, 192, 222, 0.15);
 }
 
-.input-group-lg > .form-control.tp-form-control,
-.input-group-lg > .input-group-text {
+.input-group > .form-control.tp-form-control,
+.input-group > .input-group-text {
     border-radius: 1rem;
 }
 
@@ -129,6 +131,7 @@
     gap: 0.6rem;
     color: var(--tp-primary-contrast);
     font-weight: 600;
+    font-size: 1.1rem;
 }
 
 .tp-section-title i {
@@ -137,13 +140,13 @@
 
 .tp-section-description {
     color: var(--tp-muted);
-    line-height: 1.7;
-    font-size: 0.98rem;
+    line-height: 1.6;
+    font-size: 0.94rem;
 }
 
 .tp-help-text {
     color: var(--tp-muted);
-    font-size: 0.88rem;
+    font-size: 0.84rem;
 }
 
 .tp-result-section {

@@ -16,7 +16,7 @@ $domain = isset($atts['domain']) ? esc_attr($atts['domain']) : TP_Link_Shortener
     <div class="row justify-content-center">
         <div class="col-lg-10 col-xl-8">
             <div class="card border-0 shadow-sm tp-card">
-                <div class="card-body p-4 p-xl-5">
+                <div class="card-body p-3 p-xl-4">
                     <div class="tp-header mb-4">
                         <div class="d-flex align-items-center gap-3">
                             <span class="tp-title-icon">
@@ -37,7 +37,7 @@ $domain = isset($atts['domain']) ? esc_attr($atts['domain']) : TP_Link_Shortener
                             </label>
                             <div class="row g-3 align-items-center">
                                 <div class="col-md">
-                                    <div class="input-group input-group-lg">
+                                    <div class="input-group">
                                         <span class="input-group-text bg-white border-end-0">
                                             <i class="fas fa-link text-muted"></i>
                                         </span>
@@ -52,7 +52,7 @@ $domain = isset($atts['domain']) ? esc_attr($atts['domain']) : TP_Link_Shortener
                                     </div>
                                 </div>
                                 <div class="col-md-auto">
-                                    <button type="submit" class="btn btn-lg tp-btn tp-btn-primary w-100 w-md-auto" id="tp-submit-btn">
+                                    <button type="submit" class="btn tp-btn tp-btn-primary w-100 w-md-auto" id="tp-submit-btn">
                                         <i class="fas fa-key me-2"></i>
                                         <?php esc_html_e('Register', 'tp-link-shortener'); ?>
                                     </button>
@@ -71,7 +71,7 @@ $domain = isset($atts['domain']) ? esc_attr($atts['domain']) : TP_Link_Shortener
                                 type="text"
                                 id="tp-custom-key"
                                 name="custom_key"
-                                class="form-control form-control-lg tp-form-control"
+                                class="form-control tp-form-control"
                                 placeholder="<?php esc_attr_e('6MagicTricks', 'tp-link-shortener'); ?>"
                                 pattern="[a-zA-Z0-9\.\-_]+"
                             />
@@ -116,7 +116,7 @@ $domain = isset($atts['domain']) ? esc_attr($atts['domain']) : TP_Link_Shortener
                         <?php endif; ?>
 
                         <!-- Naming Guidance Sections -->
-                        <div class="tp-section tp-name-section rounded-4 p-4 mb-4">
+                        <div class="tp-section tp-name-section rounded-4 p-3 p-md-4 mb-4">
                             <h3 class="tp-section-title h5 mb-2">
                                 <i class="fas fa-signature me-2"></i>
                                 <?php esc_html_e('Pick a short keyword', 'tp-link-shortener'); ?>
@@ -126,7 +126,7 @@ $domain = isset($atts['domain']) ? esc_attr($atts['domain']) : TP_Link_Shortener
                             </p>
                         </div>
 
-                        <div class="tp-section rounded-4 p-4 mb-4">
+                        <div class="tp-section rounded-4 p-3 p-md-4 mb-4">
                             <h3 class="tp-section-title h5 mb-2">
                                 <i class="fas fa-bullseye me-2"></i>
                                 <?php esc_html_e('Keep it relevant', 'tp-link-shortener'); ?>
@@ -136,7 +136,7 @@ $domain = isset($atts['domain']) ? esc_attr($atts['domain']) : TP_Link_Shortener
                             </p>
                         </div>
 
-                        <div class="tp-section rounded-4 p-4 mb-4">
+                        <div class="tp-section rounded-4 p-3 p-md-4 mb-4">
                             <h3 class="tp-section-title h5 mb-2">
                                 <i class="fas fa-rocket me-2"></i>
                                 <?php esc_html_e('Share it instantly', 'tp-link-shortener'); ?>
